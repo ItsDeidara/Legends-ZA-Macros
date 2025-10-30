@@ -1,0 +1,7 @@
+﻿[
+    {
+        "Action": "button-A",
+        "HoldMs": "200 ms",
+        "ReleaseMs": "5000 ms"
+    }
+]

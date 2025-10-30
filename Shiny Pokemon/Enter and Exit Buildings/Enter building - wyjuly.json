@@ -1,0 +1,34 @@
+﻿[
+    {
+        "Action": "left-joystick",
+        "HoldMs": "500",
+        "MoveDirectionX": 128,
+        "MoveDirectionY": 255,
+        "ReleaseMs": "0"
+    },
+    {
+        "Action": "button-A",
+        "HoldMs": "100",
+        "ReleaseMs": "1000"
+    },
+    {
+        "Action": "wait",
+        "WaitMs": "5700"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "500",
+        "MoveDirectionX": 128,
+        "MoveDirectionY": 255,
+        "ReleaseMs": "0"
+    },
+    {
+        "Action": "button-A",
+        "HoldMs": "100",
+        "ReleaseMs": "1000"
+    },
+    {
+        "Action": "wait",
+        "WaitMs": "5700"
+    }
+]

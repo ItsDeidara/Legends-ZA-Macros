@@ -1,0 +1,33 @@
+﻿[
+    {
+        "Action": "button-plus",
+        "HoldMs": "500 ms",
+        "ReleaseMs": "100 ms"
+    },
+    {
+        "Action": "left-joy-click",
+        "HoldMs": "100 ms",
+        "ReleaseMs": "100 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "100 ms",
+        "MoveDirectionX": 0,
+        "MoveDirectionY": 0,
+        "ReleaseMs": "100 ms"
+    },
+    {
+        "Action": "button-A",
+        "HoldMs": "500 ms",
+        "ReleaseMs": "200 ms"
+    },
+    {
+        "Action": "button-A",
+        "HoldMs": "500 ms",
+        "ReleaseMs": "200 ms"
+    },
+    {
+        "Action": "wait",
+        "WaitMs": "3000 ms"
+    }
+]

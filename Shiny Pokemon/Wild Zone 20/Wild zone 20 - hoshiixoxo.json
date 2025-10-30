@@ -1,0 +1,120 @@
+﻿[
+    {
+        "Action": "left-joystick",
+        "HoldMs": "700 ms",
+        "MoveDirectionX": 128,
+        "MoveDirectionY": 0,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "button-A",
+        "HoldMs": "100 ms",
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "5300 ms",
+        "MoveDirectionX": 128,
+        "MoveDirectionY": 0,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "2300 ms",
+        "MoveDirectionX": 255,
+        "MoveDirectionY": 128,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "2100 ms",
+        "MoveDirectionX": 255,
+        "MoveDirectionY": 96,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "2000 ms",
+        "MoveDirectionX": 255,
+        "MoveDirectionY": 64,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "1900 ms",
+        "MoveDirectionX": 255,
+        "MoveDirectionY": 32,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "2000 ms",
+        "MoveDirectionX": 255,
+        "MoveDirectionY": 0,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "2000 ms",
+        "MoveDirectionX": 224,
+        "MoveDirectionY": 0,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "2000 ms",
+        "MoveDirectionX": 192,
+        "MoveDirectionY": 0,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "4000 ms",
+        "MoveDirectionX": 128,
+        "MoveDirectionY": 0,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "3300 ms",
+        "MoveDirectionX": 255,
+        "MoveDirectionY": 0,
+        "ReleaseMs": "0 ms"
+    },
+    {
+        "Action": "button-A",
+        "HoldMs": "100 ms",
+        "ReleaseMs": "3000 ms"
+    },
+    {
+        "Action": "button-plus",
+        "HoldMs": "100 ms",
+        "ReleaseMs": "1200 ms"
+    },
+    {
+        "Action": "left-joystick",
+        "HoldMs": "200 ms",
+        "MoveDirectionX": 128,
+        "MoveDirectionY": 255,
+        "ReleaseMs": "200 ms"
+    },
+    {
+        "Action": "button-A",
+        "HoldMs": "100 ms",
+        "ReleaseMs": "400 ms"
+    },
+    {
+        "Action": "button-A",
+        "HoldMs": "100 ms",
+        "ReleaseMs": "400 ms"
+    },
+    {
+        "Action": "button-A",
+        "HoldMs": "100 ms",
+        "ReleaseMs": "400 ms"
+    },
+    {
+        "Action": "wait",
+        "WaitMs": "8800 ms"
+    }
+]
