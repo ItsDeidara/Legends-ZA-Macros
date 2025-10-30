@@ -1,0 +1,20 @@
+﻿[
+    {
+        "Action": "button-A",
+        "HoldMs": "750 ms",
+        "ReleaseMs": "750 ms"
+    },
+    {
+        "Action": "wait",
+        "WaitMs": "5250 ms"
+    },
+    {
+        "Action": "button-A",
+        "HoldMs": "750 ms",
+        "ReleaseMs": "750 ms"
+    },
+    {
+        "Action": "wait",
+        "WaitMs": "5250 ms"
+    }
+]

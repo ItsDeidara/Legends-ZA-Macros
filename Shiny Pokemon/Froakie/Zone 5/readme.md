@@ -1,4 +1,4 @@
-﻿## How to use
+## How to use
 Fast Travel to zone 5
 Run the macro
 
