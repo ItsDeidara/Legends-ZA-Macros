@@ -1,0 +1,325 @@
+﻿{
+    "controller_class": "NS1: Pro Controller",
+    "history": [
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 642,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "B",
+            "dpad": "none",
+            "duration_in_ms": 188,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 294,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "A",
+            "dpad": "none",
+            "duration_in_ms": 98,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 1789,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 292,
+            "is_neutral": false,
+            "left_x": 255,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 151,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "B",
+            "dpad": "none",
+            "duration_in_ms": 249,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 25,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 134,
+            "is_neutral": false,
+            "left_x": 255,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 592,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 665,
+            "is_neutral": false,
+            "left_x": 0,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 619,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 347,
+            "is_neutral": false,
+            "left_x": 0,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 440,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 371,
+            "is_neutral": false,
+            "left_x": 0,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 1484,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 413,
+            "is_neutral": false,
+            "left_x": 0,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 4111,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 343,
+            "is_neutral": false,
+            "left_x": 0,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 1042,
+            "is_neutral": false,
+            "left_x": 0,
+            "left_y": 128,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 249,
+            "is_neutral": false,
+            "left_x": 0,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 699,
+            "is_neutral": false,
+            "left_x": 0,
+            "left_y": 128,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 231,
+            "is_neutral": false,
+            "left_x": 0,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 324,
+            "is_neutral": false,
+            "left_x": 0,
+            "left_y": 128,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "duration_in_ms": 24,
+            "is_neutral": true
+        },
+        {
+            "buttons": "A",
+            "dpad": "none",
+            "duration_in_ms": 73,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 128,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "duration_in_ms": 2592,
+            "is_neutral": true
+        },
+        {
+            "buttons": "+",
+            "dpad": "none",
+            "duration_in_ms": 102,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 128,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "duration_in_ms": 797,
+            "is_neutral": true
+        },
+        {
+            "buttons": "none",
+            "dpad": "none",
+            "duration_in_ms": 111,
+            "is_neutral": false,
+            "left_x": 255,
+            "left_y": 0,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "duration_in_ms": 1889,
+            "is_neutral": true
+        },
+        {
+            "buttons": "A",
+            "dpad": "none",
+            "duration_in_ms": 109,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 128,
+            "right_x": 128,
+            "right_y": 128
+        },
+        {
+            "duration_in_ms": 775,
+            "is_neutral": true
+        },
+        {
+            "buttons": "A",
+            "dpad": "none",
+            "duration_in_ms": 135,
+            "is_neutral": false,
+            "left_x": 128,
+            "left_y": 128,
+            "right_x": 128,
+            "right_y": 128
+        }
+    ]
+}
