@@ -663,6 +663,20 @@
         // Load repo data on page load
         window.addEventListener('DOMContentLoaded', () => {
             loadRepoData();
+
+            // Add real-time conversion for output format changes
+            const outputFormatButtons = document.querySelectorAll('.panel:nth-child(2) .format-btn');
+            outputFormatButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    convert();
+                });
+            });
+
+            // Add real-time conversion for input JSON changes
+            const inputJson = document.getElementById('inputJson');
+            inputJson.addEventListener('input', () => {
+                convert();
+            });
         });
 
         // Setup drag and drop
@@ -685,10 +699,10 @@
         dropZone.addEventListener('drop', (e) => {
             e.preventDefault();
             dropZone.classList.remove('drag-over');
-            
+
             const files = e.dataTransfer.files;
             if (files.length > 0) {
-                handleFile(files[0]);
+                handleFile(files[0]); // Handle the file
             }
         });
 
@@ -738,6 +752,16 @@
                     fileNameDisplay.classList.add('visible');
                     
                     showStatus(`Loaded: ${file.name}`);
+
+                    // Set the output format based on the active button in the output panel
+                    const outputPanel = document.querySelector('.panel:nth-child(2)');
+                    const activeOutputButton = outputPanel.querySelector('.format-btn.active');
+                    if (activeOutputButton) {
+                        outputFormat = activeOutputButton.dataset.format;
+                    }
+
+                    // Automatically convert the loaded JSON
+                    convert();
                 } catch (error) {
                     showStatus('Invalid JSON file: ' + error.message, true);
                 }
@@ -947,6 +971,9 @@
                 fileNameDisplay.classList.add('visible');
                 
                 showStatus('Loaded ' + fileName + ' successfully!');
+
+                // Automatically convert the loaded JSON
+                convert();
             } catch (error) {
                 showStatus('Error loading file: ' + error.message, true);
             }
