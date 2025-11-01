@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeMacro Converter</title>
+    <title>PokeManager</title>
     <style>
         * {
             margin: 0;
@@ -257,6 +257,22 @@
 
         .info-icon.disabled:hover {
             transform: none;
+        }
+
+        .create-readme-btn {
+            background: rgba(78, 204, 163, 0.1);
+            border: 1px solid rgba(78, 204, 163, 0.3);
+            border-radius: 4px;
+            color: #4ecca3;
+            font-size: 12px;
+            padding: 4px 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .create-readme-btn:hover {
+            background: rgba(78, 204, 163, 0.2);
+            border-color: #4ecca3;
         }
 
         .modal {
@@ -545,11 +561,27 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .missing-readme-btn {
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            border-radius: 4px;
+            color: #ffa500;
+            font-size: 12px;
+            padding: 4px 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .missing-readme-btn:hover {
+            background: rgba(255, 165, 0, 0.2);
+            border-color: #ffa500;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>PokeMacro Converter</h1>
+        <h1>PokeManager</h1>
         
         <div class="converter-wrapper">
             <div class="panel">
@@ -735,61 +767,42 @@
             try {
                 const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/git/trees/${REPO_BRANCH}?recursive=1`);
                 const data = await response.json();
-                
+
                 // Organize files by folder and match readmes to JSON files
                 const folders = {};
                 const readmes = {};
-                
-                // First pass: collect all readmes
+
+                // First pass: collect all .md files
                 data.tree.forEach(item => {
-                    if (item.type === 'blob' && item.path.toLowerCase().endsWith('readme.md')) {
-                        const parts = item.path.split('/');
-                        const dirPath = parts.slice(0, -1).join('/');
-                        const readmeName = parts[parts.length - 1].toLowerCase();
-                        readmes[item.path] = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/${item.path}`;
+                    if (item.type === 'blob' && item.path.toLowerCase().endsWith('.md')) {
+                        const dirPath = item.path.split('/').slice(0, -1).join('/');
+                        if (!readmes[dirPath]) {
+                            readmes[dirPath] = [];
+                        }
+                        readmes[dirPath].push({
+                            name: item.path.split('/').pop(),
+                            url: `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/${item.path}`
+                        });
                     }
                 });
-                
-                // Second pass: collect JSON files and match with readmes
+
+                // Second pass: collect JSON files and match with any .md file in the same directory
                 data.tree.forEach(item => {
                     if (item.type === 'blob' && item.path.endsWith('.json')) {
                         const parts = item.path.split('/');
                         if (parts.length > 1) {
                             const folder = parts[0];
                             const fileName = parts[parts.length - 1];
-                            const baseName = fileName.replace('.json', '');
                             const dirPath = parts.slice(0, -1).join('/');
-                            
-                            // Try to find matching readme
-                            // Look for: samefolder/README.md, samefolder/readme.md, samefolder/MacroName.md, etc.
-                            let readmeUrl = null;
-                            
-                            // Check for exact match: MacroName.md
-                            const exactMatch = `${dirPath}/${baseName}.md`;
-                            if (readmes[exactMatch]) {
-                                readmeUrl = readmes[exactMatch];
-                            }
-                            
-                            // Check for README.md in same directory
-                            if (!readmeUrl) {
-                                const readmeInDir = `${dirPath}/README.md`;
-                                if (readmes[readmeInDir]) {
-                                    readmeUrl = readmes[readmeInDir];
-                                }
-                            }
-                            
-                            // Check for readme.md (lowercase) in same directory
-                            if (!readmeUrl) {
-                                const readmeInDirLower = `${dirPath}/readme.md`;
-                                if (readmes[readmeInDirLower]) {
-                                    readmeUrl = readmes[readmeInDirLower];
-                                }
-                            }
-                            
+
+                            // Find any .md file in the same directory
+                            const readmeFiles = readmes[dirPath] || [];
+                            const readmeUrl = readmeFiles.length > 0 ? readmeFiles[0].url : null;
+
                             if (!folders[folder]) {
                                 folders[folder] = [];
                             }
-                            
+
                             folders[folder].push({
                                 name: fileName,
                                 path: item.path,
@@ -799,7 +812,7 @@
                         }
                     }
                 });
-                
+
                 repoData = { folders, readmes };
                 renderRepoContent();
             } catch (error) {
@@ -810,12 +823,12 @@
 
         function renderRepoContent() {
             const content = document.getElementById('repoBrowserContent');
-            
+
             if (!repoData || Object.keys(repoData.folders).length === 0) {
                 content.innerHTML = '<div class="repo-loading">No macros found</div>';
                 return;
             }
-            
+
             let html = '';
             for (const [folder, files] of Object.entries(repoData.folders)) {
                 html += `
@@ -826,25 +839,61 @@
                         </div>
                         <div class="repo-files">
                 `;
-                
+
+                // Group files by their subfolder structure
+                const subfolders = {};
                 files.forEach(file => {
-                    const hasReadme = file.readmeUrl;
-                    html += `
-                        <div class="repo-file" onclick="loadRepoFile('${file.url}', '${file.name}')">
-                            <div class="repo-file-container">
-                                <span class="repo-file-name">${file.name}</span>
-                                ${hasReadme ? `<span class="info-icon" onclick="event.stopPropagation(); loadReadme('${file.name}', '${file.readmeUrl}')" title="View README">i</span>` : '<span class="info-icon disabled" title="No README available">i</span>'}
-                            </div>
-                        </div>
-                    `;
+                    const parts = file.path.split('/');
+                    const subfolder = parts.slice(1, -1).join('/') || 'root';
+                    if (!subfolders[subfolder]) {
+                        subfolders[subfolder] = [];
+                    }
+                    subfolders[subfolder].push(file);
                 });
-                
+
+                // Render files within their respective subfolders
+                for (const [subfolder, subfolderFiles] of Object.entries(subfolders)) {
+                    if (subfolder !== 'root') {
+                        html += `
+                            <div class="repo-folder">
+                                <div class="repo-folder-name">
+                                    <span class="folder-icon">📂</span>
+                                    <span>${subfolder}</span>
+                                </div>
+                                <div class="repo-files">
+                        `;
+                    }
+
+                    subfolderFiles.forEach(file => {
+                        const hasReadme = file.readmeUrl;
+                        html += `
+                            <div class="repo-file" onclick="loadRepoFile('${file.url}', '${file.name}')">
+                                <div class="repo-file-container">
+                                    <span class="repo-file-name">${file.name}</span>
+                                    ${hasReadme ? `
+                                        <span class="info-icon" onclick="event.stopPropagation(); loadReadme('${file.name}', '${file.readmeUrl}')" title="View README">i</span>
+                                    ` : `
+                                        <button class="missing-readme-btn" onclick="event.stopPropagation(); createReadme('${file.name}')">Missing README</button>
+                                    `}
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    if (subfolder !== 'root') {
+                        html += `
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+
                 html += `
                         </div>
                     </div>
                 `;
             }
-            
+
             content.innerHTML = html;
         }
 
@@ -1351,6 +1400,47 @@
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
             showStatus('Download started!');
+        }
+
+        function createReadme(fileName) {
+            const modal = document.getElementById('readmeModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const readmeContent = document.getElementById('readmeContent');
+
+            // Set modal title and pre-fill content with a template
+            modalTitle.textContent = `Create README for ${fileName}`;
+            readmeContent.innerHTML = `
+                <textarea id="readmeEditor" class="readme-editor">
+# ${fileName}
+This is a placeholder README for the macro file **${fileName}**. Please update this content to describe the macro's purpose, usage, and any other relevant details.
+
+## Instructions
+- Include usage instructions or examples.
+
+## Notes
+- This README was generated as a template. Replace this text with any notes you may have
+                </textarea>
+                <div class="button-group">
+                    <button onclick="downloadReadme('${fileName}')">Download README</button>
+                </div>
+            `;
+
+            // Open the modal
+            modal.classList.add('open');
+        }
+
+        function downloadReadme(fileName) {
+            const content = document.getElementById('readmeEditor').value;
+            const blob = new Blob([content], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${fileName.replace('.json', '')}_README.md`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showStatus('README downloaded successfully!');
         }
     </script>
 </body>
